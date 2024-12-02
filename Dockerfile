@@ -19,8 +19,8 @@ COPY ./db.sqlite3.dist /app/db.sqlite3
 COPY ./.env.docker /app/.env
 COPY ./download-nltk-resources.sh /app/
 
+RUN chmod +x /app/download-nltk-resources.sh
 WORKDIR /app
-
 # Optimize pip and Python installations
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt \
